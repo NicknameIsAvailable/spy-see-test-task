@@ -1,0 +1,4 @@
+.tabContent {
+    animation: fade-in var(--anim-duration) var(--anim-ease);
+}
+

@@ -1,0 +1,35 @@
+.status {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fade-in var(--anim-duration) var(--anim-ease);
+}
+
+.icon {
+    height: 200px;
+    width: 260px;
+    margin-bottom: var(--spacing-l);
+    transition: transform var(--anim-duration) var(--anim-ease);
+}
+
+.label {
+    text-align: center;
+    font-style: bold;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-size: var(--text-lg);
+    line-height: var(--text-lg);
+    margin-bottom: var(--text-sm);
+    animation: slide-up-fade var(--anim-duration) var(--anim-ease);
+}
+
+.description {
+    text-align: center;
+    font-size: var(--text-sm);
+    line-height: 20px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--color-back);
+}

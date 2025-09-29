@@ -1,0 +1,13 @@
+.drawer {
+    position: sticky;
+    width: 348px;
+    height: 100vh;
+    background-color: var(--color-back-light);
+    animation: slide-up-fade var(--anim-duration) var(--anim-ease);
+}
+
+@media (max-width: 768px) {
+    .drawer {
+        display: none;
+    }
+}

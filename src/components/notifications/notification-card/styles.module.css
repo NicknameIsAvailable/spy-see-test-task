@@ -1,0 +1,96 @@
+/* notification */
+
+.notification {
+    padding: var(--spacing-md);
+    border-bottom: var(--color-border) 1px solid;
+    display: flex;
+    gap: var(--spacing-md);
+    animation: fade-in var(--anim-duration) var(--anim-ease);
+    transition: background-color var(--anim-duration) var(--anim-ease),
+                transform var(--anim-duration-fast) var(--anim-ease),
+                box-shadow var(--anim-duration) var(--anim-ease);
+}
+
+.notification:hover {
+    background-color: var(--color-back-tinted);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+}
+
+.info {
+    flex: 1;
+}
+
+.text {
+    margin-top: var(--spacing-sm-plus);
+    font-weight: 400;
+    font-style: bold;
+    font-size: var(--text-sm);
+    line-height: 20px;
+}
+
+.author {
+    font-weight: 700;
+    font-style: bold;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.time {
+    color: var(--color-back);
+    font-size: var(--text-xs);
+    line-height: 18px;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-style: regular;
+}
+
+/* skeleton */
+
+.skeleton {
+    padding: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-lg-plus);
+    animation: fade-in var(--anim-duration) var(--anim-ease);
+}
+
+.skeletonCircle {
+    height: var(--spacing-xl);
+    width:  var(--spacing-xl);
+    border-radius: 100%;
+    background-color: var(--color-back-tinted);
+    background-image: linear-gradient(90deg, var(--color-back-tinted) 0%, #f9fbfc 50%, var(--color-back-tinted) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+}
+
+.skeletonContent {
+    flex: 1;
+}
+
+.skeletonLabel {
+    margin-top: var(--spacing-sm-plus);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-back-tinted);
+    background-image: linear-gradient(90deg, var(--color-back-tinted) 0%, #f9fbfc 50%, var(--color-back-tinted) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+    height: var(--spacing-l);
+    width: 100%;
+}
+
+.skeletonDescription {
+    margin-top: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-back-tinted);
+    background-image: linear-gradient(90deg, var(--color-back-tinted) 0%, #f9fbfc 50%, var(--color-back-tinted) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+    height: var(--spacing-md);
+    width: 141px;
+}

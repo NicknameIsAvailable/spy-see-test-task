@@ -1,0 +1,12 @@
+.preview {
+    overflow: hidden;
+    width: var(--spacing-xl);
+    height: var(--spacing-xl);
+    border-radius: var(--border-radius-l);
+    animation: pop-in var(--anim-duration) var(--anim-ease);
+    transition: transform var(--anim-duration-fast) var(--anim-ease),
+                box-shadow var(--anim-duration) var(--anim-ease);
+}
+
+.preview:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--shadow-soft); }
+.preview:active { transform: translateY(0) scale(1.0); }

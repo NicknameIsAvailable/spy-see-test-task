@@ -1,0 +1,21 @@
+.header {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    animation: slide-up-fade var(--anim-duration) var(--anim-ease);
+}
+
+.title {
+    font-size: var(--text-md);
+    font-weight: 700;
+    font-style: bold;
+    flex: 1;
+    animation: fade-in var(--anim-duration-slow) var(--anim-ease);
+}
+
+.nav {
+    display: flex;
+    gap: var(--spacing-xs);
+}

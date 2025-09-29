@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Spy & See — Test Task
 
-## Getting Started
+A Next.js app showcasing notifications, posts, and shared UI components. It includes SSR-friendly, accessible CSS animations (entry, hover, active) implemented via global keyframes and variables.
 
-First, run the development server:
+### Tech Stack
+- **Next.js** 15 (App Router)
+- **React** 19
+- **TypeScript**
+- **@tanstack/react-query** 5
+- **ESLint** 9
 
+### Requirements
+- Node.js 20+
+- pnpm (recommended) or npm/yarn
+
+### Getting Started
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+```
+2. Run the dev server:
+```bash
 pnpm dev
-# or
-bun dev
+```
+The app will start on `http://localhost:3000`.
+
+### Available Scripts
+- **dev**: Start development server with Turbopack
+```bash
+pnpm dev
+```
+- **build**: Create a production build with Turbopack
+```bash
+pnpm build
+```
+- **start**: Run the production server
+```bash
+pnpm start
+```
+- **lint**: Run ESLint
+```bash
+pnpm lint
+```
+- **generate:api**: Regenerate the API client from `openapi.json`
+```bash
+pnpm generate:api
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Project Structure
+```text
+src/
+  api/                 # OpenAPI-generated client (fetch-based)
+  app/                 # Next.js app router pages/layouts
+  components/          # Feature components (notifications, post, user, layout)
+  shared/
+    config/            # App configuration & query client
+    ui/                # Reusable UI components and styles
+    utils/             # Utilities (pluralize, timeAgo)
+  types/               # Global type declarations (e.g. css modules)
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Animations (SSR-safe)
+- Global variables and keyframes live in `src/shared/ui/styles/globals.css`.
+- Components use pure CSS transitions/animations; no runtime hooks are required for mount effects.
+- Accessibility: `prefers-reduced-motion: reduce` disables animations and transitions globally.
+- Tuning: Adjust durations/easing via CSS variables:
+```css
+:root {
+  --anim-duration-fast: 120ms;
+  --anim-duration: 220ms;
+  --anim-duration-slow: 360ms;
+  --anim-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Key enhanced styles:
+- Buttons: `shared/ui/button/styles.module.css`
+- Tabs: `shared/ui/tabs/styles.module.css`
+- Header: `shared/ui/header/styles.module.css`
+- Drawer: `shared/ui/drawer/style.module.css`
+- Context menu: `shared/ui/context-menu/styles.module.css`
+- Notification card + skeleton shimmer: `components/notifications/notification-card/styles.module.css`
+- Post preview: `components/post/post-preview/styles.module.css`
+- Layout: `components/layout/main-layout/styles.module.css`
 
-## Learn More
+### API Client
+The API client is generated from `openapi.json` using `openapi-typescript-codegen` (via the `openapi` CLI exposed as `openapi`). Regenerate after schema changes:
+```bash
+pnpm generate:api
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Linting
+ESLint is configured via `eslint.config.mjs`.
+```bash
+pnpm lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Environment Variables
+If you need environment configuration, add `.env.local` in the project root. Next.js automatically loads it. Example:
+```bash
+NEXT_PUBLIC_API_BASE_URL=https://api.example.com
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Deployment
+1. Build the app:
+```bash
+pnpm build
+```
+2. Start the server:
+```bash
+pnpm start
+```
+Deploy to any Node hosting provider or to Vercel.
 
-## Deploy on Vercel
+### Accessibility Notes
+- Animations respect `prefers-reduced-motion`.
+- Colors and contrast are based on the design tokens in `globals.css`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### License
+This repository is for a test task. License as provided by the project owner.

@@ -1,0 +1,13 @@
+@import url("./globals.css");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: var(--font-base);
+    color: var(--color-text);
+}

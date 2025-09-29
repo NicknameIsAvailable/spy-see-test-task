@@ -1,0 +1,12 @@
+.mainLayout {
+    display: flex;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    animation: fade-in var(--anim-duration) var(--anim-ease);
+}
+
+.content {
+    flex: 1;
+    animation: slide-up-fade var(--anim-duration) var(--anim-ease);
+}
