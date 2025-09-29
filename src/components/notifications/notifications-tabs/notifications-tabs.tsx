@@ -6,7 +6,6 @@ import "@/shared/ui/styles/index.css";
 import { useRouter } from "next/navigation";
 import { FC } from "react";
 import { NotificationsTabsProps } from "./model";
-import { AllNotificationsContent } from "./all-notification-content";
 import { NotificationTabContent } from "./notification-tab-content";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/shared/config/query-client";

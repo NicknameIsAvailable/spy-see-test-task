@@ -6,7 +6,6 @@ import { NotificationSkeleton } from "../../notification-card/skeleton";
 import { NotificationCard } from "../../notification-card";
 import Status from "@/shared/ui/status";
 import { FC, useEffect, useRef } from "react";
-import { NotificationsTabsProps } from "../model";
 import { NotificationTabContentProps } from "./model";
 
 const QUERY_KEY = "notifications";
@@ -69,7 +68,7 @@ export const NotificationTabContent: FC<NotificationTabContentProps> = ({
   const allItems = data?.pages.flatMap((p) => p.results) || [];
   const filteredData = filterNotifications(allItems, filterBy);
 
-  const loadMoreRef = useRef<HTMLDivElement | null>(null);
+  const loadMoreRef = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
     const el = loadMoreRef.current;

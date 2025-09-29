@@ -1,3 +1,9 @@
+import { NotificationsTabs } from "@/components/notifications/notifications-tabs/notifications-tabs";
+
 export default function NotificationsPage() {
-  return <></>;
+  return (
+    <>
+      <NotificationsTabs activeTab="all" />
+    </>
+  );
 }

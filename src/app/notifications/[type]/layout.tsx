@@ -1,19 +1,27 @@
 import { Notifications } from "@/components/notifications";
+import { ReactNode, use } from "react";
 
 export type NotificationType = "all" | "communication" | "actions";
 
-interface NotificationsPageParams {
-  params: Promise<{ type: NotificationType }>;
+interface NotificationsLayoutProps {
+  children: ReactNode;
+  params: Promise<{ type: string }>;
 }
 
-export default async function NotificationsLayout({
+export default function NotificationsLayout({
+  children,
   params,
-}: NotificationsPageParams) {
-  const { type } = await params;
+}: NotificationsLayoutProps) {
+  const { type: rawType } = use(params);
+  const allowed: NotificationType[] = ["all", "communication", "actions"];
+  const type = allowed.includes(rawType as NotificationType)
+    ? (rawType as NotificationType)
+    : "all";
 
   return (
     <>
       <Notifications.Tabs activeTab={type} />
+      {children}
     </>
   );
 }

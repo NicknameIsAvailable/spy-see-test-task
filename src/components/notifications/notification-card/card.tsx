@@ -39,7 +39,6 @@ const renderSubscribtionButtonOrPreview = (
 };
 
 export const NotificationCard: FC<NotificationCardProps> = ({ data }) => {
-  console.log(data);
   return (
     <li className={styles.notification}>
       {renderUsers(data.user, data.users)}
